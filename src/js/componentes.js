@@ -6,6 +6,9 @@ const txtInput      = document.querySelector('.new-todo')
 const btnBorrar     = document.querySelector('.clear-completed')
 const ulFiltros     = document.querySelector('.filters')
 const anchoFiltros  = document.querySelectorAll('.filtro')
+const btnPendientes    = document.querySelector('strong')
+
+
 
 export const crearTodoHtml = (todo)=>{
 
@@ -26,6 +29,18 @@ export const crearTodoHtml = (todo)=>{
     return div.firstElementChild;
 };
 
+export const numPendientes = ()=>{
+    const pendiente = []
+    for (const elemento of divTodoList.children){
+        const completado = elemento.classList.contains('completed')
+        if(!completado){
+            pendiente.push(elemento)
+        }
+    }
+    // const numeroPendiente = pendiente.length
+    btnPendientes.innerText = pendiente.length;
+}
+
 //eventos
 txtInput.addEventListener('keyup',(event)=>{
     if(event.keyCode === 13 && txtInput.value.length > 0){
@@ -34,6 +49,7 @@ txtInput.addEventListener('keyup',(event)=>{
         crearTodoHtml(nuevoTodoValor);
         txtInput.value = '';
     }
+    numPendientes();
 })
 
 divTodoList.addEventListener('click',(event)=>{
@@ -44,6 +60,7 @@ divTodoList.addEventListener('click',(event)=>{
     if(nombreElemento.includes('input')){
         todoList.marcarCompletado(todoId);
         todoElemento.classList.toggle('completed') //toggle agrega o quita la clase o la cambia
+        numPendientes();
     }else if (nombreElemento.includes('button')){ //borramos la tarea
         todoList.eliminarTodo(todoId);
         divTodoList.removeChild(todoElemento);
@@ -55,7 +72,6 @@ btnBorrar.addEventListener('click',()=>{
     todoList.eliminarCompletados();
     for(let i = divTodoList.children.length-1;i>=0;i--){
         const elemento = divTodoList.children[i];
-        console.log(elemento);
         if(elemento.classList.contains('completed')){
             divTodoList.removeChild(elemento)
         }
