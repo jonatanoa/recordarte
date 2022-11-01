@@ -29,6 +29,20 @@ export const crearTodoHtml = (todo)=>{
     return div.firstElementChild;
 };
 
+//emojis
+const input = document.querySelector('.icon-bx')
+const picker = new EmojiButton({
+    position:'center-end'
+})
+picker.on('emoji', function (emoji){
+    txtInput .value += emoji;
+})
+
+input.addEventListener('click', function(){
+    picker.pickerVisible ? picker.hidePicker(): picker.showPicker(input);
+})
+//fin emojis
+
 export const numPendientes = ()=>{
     const pendiente = []
     for (const elemento of divTodoList.children){
@@ -37,7 +51,6 @@ export const numPendientes = ()=>{
             pendiente.push(elemento)
         }
     }
-    // const numeroPendiente = pendiente.length
     btnPendientes.innerText = pendiente.length;
 }
 

@@ -3,18 +3,20 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Template • TodoMVC</title>
+		<title>Recordarte</title>
 	</head>
 	<body>
 		<section class="todoapp">
 			<header class="header">
 				<h1>Tareas</h1>
+				<div class="icon-bx">
+					<ion-icon class="icon" name="happy-outline"></ion-icon>
+				</div>
 				<input class="new-todo" placeholder="¿Que vas a hacer hoy?" autofocus>
 			</header>
 			<!-- This section should be hidden by default and shown when there are todos -->
 			<section class="main">
-				<input id="toggle-all" class="toggle-all" type="checkbox">
-				<label for="toggle-all">Mark all as complete</label>
+				
 				<ul class="todo-list">
 					<!-- These are here just to show the structure of the list items -->
 					<!-- List items should get the class `editing` when editing and `completed` when marked as completed -->
@@ -57,13 +59,13 @@
 			</footer>
 		</section>
 		<footer class="info">
-
-			<p>Template creado por <a href="http://sindresorhus.com">Sindre Sorhus</a></p>
 			<!-- Change this out with your name and url ↓ -->
-			<p>Creado por <a href="http://todomvc.com">ti</a></p>
-			<p>Parte de <a href="http://todomvc.com">TodoMVC</a></p>
+			<p>Creado por <a href="">	Jonatan Osorio Arcila</a></p>
 		</footer>
         
         
 	</body>
+	<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+	<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+	<script src="https://cdn.jsdelvr.net/npm/emoji-button@latest/dist/index.min.js"></script>
 </html>
